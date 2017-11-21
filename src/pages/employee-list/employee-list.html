@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Codecentric AG - Mitarbeiterliste
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems(searchTerm)" placeholder="Mitarbeiter nach Programmiersprache suchen.."></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid fixed>
+    <ion-list>
+      <ion-item *ngFor='let employee of filteredEmployeeList'>
+        <ion-thumbnail item-start>
+          <img src="{{employee.avatar_url}}" alt="Bild von {{employee.login}}">
+        </ion-thumbnail>
+        <h2 *ngIf="employee.employeeDetails" [innerHTML]="employee.employeeDetails.name || employee.login"></h2>
+        <p>
+          <span *ngFor="let skill of employee.skills">
+            {{skill.programmLanguage}}({{skill.skill}})
+          </span>
+        </p>
+        <button ion-button clear item-end>View</button>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-content>
