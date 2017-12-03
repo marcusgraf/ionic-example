@@ -1,4 +1,4 @@
-# Codecentric Task with Ionic
+# Javascript Task with Ionic (4h Time Limit)
 
 ### Prerequisites
 
